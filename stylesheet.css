@@ -1,6 +1,6 @@
 #main {
 	width: 85%;
-    height: 85%;
+    height: 65%;
 
     position: absolute;
     top:0;
@@ -9,26 +9,32 @@
     right: 0;
 
     margin: auto;
+    z-index: 1;
 }
 
-body {
-	background-image: url("tamil.png");
+#googlemaps {
+	width: 100%;
+	height: 100%;
+	position:absolute; 
+	top: 0; 
+	left: 0;
 }
 
 div {
 	text-align: center;
+	z-index: 0;
 }
 
 textarea {
 	width: 70%;
-	font-size: 70px;
+	font-size: 50px;
 }
 
 .special {
-	font-size: 70px;
+	font-size: 40px;
 	font-family: Helvetica;
-	padding: 10px;
 	width: 30%;
+	padding: 5px;
 }
 
 #spacebar {
@@ -36,10 +42,13 @@ textarea {
 }
 
 button {
-	font-size: 90px;
+	font-size: 50px;
 	display: inline-block;
 	border-radius: 12px;
 	background-image: linear-gradient(red, yellow);
+	border-color: black;
+	padding-bottom: 5px;
+	margin: 1px;
 }
 
 button:hover {
