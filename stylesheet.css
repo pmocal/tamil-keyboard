@@ -1,0 +1,47 @@
+#main {
+	width: 85%;
+    height: 85%;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+body {
+	background-image: url("tamil.png");
+}
+
+div {
+	text-align: center;
+}
+
+textarea {
+	width: 70%;
+	font-size: 70px;
+}
+
+.special {
+	font-size: 70px;
+	font-family: Helvetica;
+	padding: 10px;
+	width: 30%;
+}
+
+#spacebar {
+	width: 60%;
+}
+
+button {
+	font-size: 90px;
+	display: inline-block;
+	border-radius: 12px;
+	background-image: linear-gradient(red, yellow);
+}
+
+button:hover {
+    background-image: linear-gradient(red, green);
+}
