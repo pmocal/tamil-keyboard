@@ -28,6 +28,7 @@ div {
 textarea {
 	width: 70%;
 	font-size: 50px;
+	background-color: #FFFFF0;
 }
 
 .special {
@@ -45,12 +46,12 @@ button {
 	font-size: 50px;
 	display: inline-block;
 	border-radius: 12px;
-	background-image: linear-gradient(red, yellow);
+	background-image: linear-gradient(white, orange);
 	border-color: black;
 	padding-bottom: 5px;
 	margin: 1px;
 }
 
 button:hover {
-    background-image: linear-gradient(red, green);
+    background-image: linear-gradient(red, yellow);
 }
