@@ -1,22 +1,53 @@
-var position = [9.805192, 79.476494];
-function showGoogleMaps() {
-    var latLng = new google.maps.LatLng(position[0], position[1]);
-    var mapOptions = {
-        zoom: 7, // initialize zoom level - the max value is 21
-        streetViewControl: false, // hide the yellow Street View pegman
-        scaleControl: true, // allow users to zoom the Google Map
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: latLng
-    };
-    map = new google.maps.Map(document.getElementById('googlemaps'),
-        mapOptions);
-    // Show the default red marker at the location
-    marker = new google.maps.Marker({
-        position: latLng,
-        map: map,
-        draggable: false,
-        animation: google.maps.Animation.DROP
-    });
+var buttons = document.getElementsByTagName('button');
+for (var i = 0; i < buttons.length; i++) {
+    var button = buttons[i];
+    button.onclick = buttonClick(button);
 }
 
-google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+function buttonClick(button) {
+    if (button.innerText == "Space") {
+        insertAtCursor(" ");
+    }
+    else if (this.innerText == "←") {
+        var str = document.getElementById("window").value;
+        document.getElementById("window").value = str.substring(0, str.length - 1);
+    }
+    else {
+        insertAtCursor(this.innerText);
+    }
+}
+
+function insertAtCursor(myValue) {
+    //IE support
+    //if (document.selection) {
+    //    document.getElementById("window").focus();
+    //    sel = document.selection.createRange();
+    //    sel.text = myValue;
+    //}
+    if (document.getElementById("window").selectionStart || document.getElementById("window").selectionStart == '0') {
+        console.log(document.getElementById("window").selectionStart);
+        var startPos = document.getElementById("window").selectionStart;
+        var endPos = document.getElementById("window").selectionEnd;
+        document.getElementById("window").value = document.getElementById("window").value.substring(0, startPos)
+            + myValue
+            + document.getElementById("window").value.substring(endPos, document.getElementById("window").value.length);
+        console.log(document.getElementById("window").selectionStart);
+    } else {
+        console.log(document.getElementById("window").selectionStart);
+        document.getElementById("window").value += myValue;
+        console.log(document.getElementById("window").selectionStart);
+    }
+}
+
+function removeAtCursor(myValue) {
+    //IE support?
+    if (document.getElementById("window").selectionStart || document.getElementById("window").selectionStart == '0') {
+        var startPos = document.getElementById("window").selectionStart;
+        var endPos = document.getElementById("window").selectionEnd;
+        document.getElementById("window").value = document.getElementById("window").value.substring(0, startPos)
+            + myValue
+            + document.getElementById("window").value.substring(endPos, document.getElementById("window").value.length);
+    } else {
+        document.getElementById("window").value += myValue;
+    }
+}
