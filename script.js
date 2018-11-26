@@ -1,19 +1,22 @@
 var buttons = document.getElementsByTagName('button');
 for (var i = 0; i < buttons.length; i++) {
     var button = buttons[i];
-    button.onclick = buttonClick(button);
+    var a = button.innerText
+    button.onclick = function () {
+        buttonClick(this.innerText)
+    }
 }
 
-function buttonClick(button) {
-    if (button.innerText == "Space") {
+function buttonClick(text) {
+    if (text == "Space") {
         insertAtCursor(" ");
     }
-    else if (this.innerText == "←") {
+    else if (text == "←") {
         var str = document.getElementById("window").value;
         document.getElementById("window").value = str.substring(0, str.length - 1);
     }
     else {
-        insertAtCursor(this.innerText);
+        insertAtCursor(text);
     }
 }
 
